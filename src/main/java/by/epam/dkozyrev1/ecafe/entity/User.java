@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class User implements Entity {
     private int id;
-    private String login;
+    private String username;
     private String password;
     private String email;
     private String phone;
@@ -14,28 +14,28 @@ public class User implements Entity {
 
     }
 
-    public User(String login, String password) {
-        this.login = login;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
-    public User(String login, String password, String email) {
-        this(login, password);
+    public User(String username, String password, String email) {
+        this(username, password);
         this.email = email;
     }
 
-    public User(String login, String password, String email, String phone) {
-        this(login, password, email);
+    public User(String username, String password, String email, String phone) {
+        this(username, password, email);
         this.phone = phone;
     }
 
-    public User(int id, String login, String password, String email, String phone) {
-        this(login, password, email, phone);
+    public User(int id, String username, String password, String email, String phone) {
+        this(username, password, email, phone);
         this.id = id;
     }
 
-    public User(int id, String login, String password, String email, String phone, boolean isPromoted) {
-        this(id, login, password, email, phone);
+    public User(int id, String username, String password, String email, String phone, boolean isPromoted) {
+        this(id, username, password, email, phone);
         this.isPromoted = isPromoted;
     }
 
@@ -48,12 +48,12 @@ public class User implements Entity {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -95,7 +95,7 @@ public class User implements Entity {
         User user = (User) o;
         return id == user.id &&
                 isPromoted == user.isPromoted &&
-                Objects.equals(login, user.login) &&
+                Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(phone, user.phone);
@@ -103,14 +103,14 @@ public class User implements Entity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password, email, phone, isPromoted);
+        return Objects.hash(id, username, password, email, phone, isPromoted);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + login + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +

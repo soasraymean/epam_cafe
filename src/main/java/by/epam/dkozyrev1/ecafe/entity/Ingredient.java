@@ -6,8 +6,8 @@ public class Ingredient implements Entity{
 
     private int id;
     private String name;
-    private int weight;
     private String pictureUrl;
+    private int weight;
 
     public Ingredient(){
 
@@ -15,14 +15,20 @@ public class Ingredient implements Entity{
     public Ingredient(String name){
         this.name=name;
     }
-    public Ingredient(String name, int weight){
+
+    public Ingredient(String name, String pictureUrl){
         this(name);
-        this.weight=weight;
-    }
-    public Ingredient(String name, int weight, String pictureUrl){
-        this(name, weight);
         this.pictureUrl=pictureUrl;
     }
+    public Ingredient(int id, String name, String pictureUrl){
+        this(name, pictureUrl);
+        this.id=id;
+    }
+    public Ingredient(int id, String name, String pictureUrl, int weight){
+        this(id, name, pictureUrl);
+        this.weight=weight;
+    }
+
 
     @Override
     public int getId() {
@@ -55,11 +61,6 @@ public class Ingredient implements Entity{
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
-    }
-
-    public Ingredient(int id, String name, int weight, String pictureUrl){
-        this(name, weight, pictureUrl);
-        this.id=id;
     }
 
     @Override

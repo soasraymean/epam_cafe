@@ -9,7 +9,6 @@ public class Client implements Actor {
     private int id;
     private User user;
     private String name;
-    private String surname;
     private int loyaltyPoints;
     private boolean isBanned=false;
     private int bonuses;
@@ -27,12 +26,8 @@ public class Client implements Actor {
         this(user);
         this.name=name;
     }
-    public Client(User user, String name, String surname){
+    public Client(User user, int id, String name, int loyaltyPoints, int bonuses, boolean isBanned){
         this(user, name);
-        this.surname=surname;
-    }
-    public Client(int id, User user, String name, String surname, int loyaltyPoints, boolean isBanned, int bonuses){
-        this(user, name, surname);
         this.id=id;
         this.loyaltyPoints=loyaltyPoints;
         this.isBanned=isBanned;
@@ -67,14 +62,6 @@ public class Client implements Actor {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public int getLoyaltyPoints() {
@@ -131,12 +118,12 @@ public class Client implements Actor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return id == client.id && loyaltyPoints == client.loyaltyPoints && isBanned == client.isBanned && bonuses == client.bonuses && Objects.equals(user, client.user) && Objects.equals(name, client.name) && Objects.equals(surname, client.surname) && Objects.equals(currentOrder, client.currentOrder) && Objects.equals(orders, client.orders);
+        return id == client.id && loyaltyPoints == client.loyaltyPoints && isBanned == client.isBanned && bonuses == client.bonuses && Objects.equals(user, client.user) && Objects.equals(name, client.name) && Objects.equals(currentOrder, client.currentOrder) && Objects.equals(orders, client.orders);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, name, surname, loyaltyPoints, isBanned, bonuses, currentOrder, orders);
+        return Objects.hash(id, user, name, loyaltyPoints, isBanned, bonuses, currentOrder, orders);
     }
 
     @Override
@@ -145,7 +132,6 @@ public class Client implements Actor {
                 "id=" + id +
                 ", user=" + user +
                 ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
                 ", loyaltyPoints=" + loyaltyPoints +
                 ", isBanned=" + isBanned +
                 ", bonuses=" + bonuses +
