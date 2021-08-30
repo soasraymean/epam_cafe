@@ -36,7 +36,7 @@ public class HomeCommand extends Command {
                      "/WEB-INF/jsp/admin/ahome.jsp" :
                      "/WEB-INF/jsp/home.jsp").forward(getRequest(), getResponse());
         } catch (ServletException | IOException | ServiceException ex) {
-            throw new ControllerException(ex);
+            //throw new ControllerException(ex);
         }
     }
 

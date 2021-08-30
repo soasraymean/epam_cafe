@@ -45,8 +45,8 @@ public class SignInCommand extends Command {
             ((HttpServletRequest) getRequest()).getSession().setAttribute("actor", actor);
             ((HttpServletResponse) getResponse()).sendRedirect(getRequest().getServletContext().getContextPath() + "/");
         } catch (ServiceException | IOException | ServletException ex) {
-            StaticDataHandler.INSTANCE.getLOGGER().error(ex);
-            StaticDataHandler.INSTANCE.getLOGGER().error(Arrays.toString(ex.getStackTrace()));
+            StaticDataHandler.getInstance().getLOGGER().error(ex);
+            StaticDataHandler.getInstance().getLOGGER().error(Arrays.toString(ex.getStackTrace()));
             getRequest().setAttribute("error",
                     Objects.nonNull(((HttpServletRequest) getRequest()).getSession().getAttribute("locale")) ?
                     switch (((HttpServletRequest) getRequest()).getSession().getAttribute("locale").toString()){

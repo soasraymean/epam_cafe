@@ -35,7 +35,7 @@ public class ProfileCommand extends Command {
                             getRequest().getRequestDispatcher("/WEB-INF/jsp/bannedinfopage.jsp").forward(getRequest(), getResponse());
                             return;
                         } catch (ServletException | IOException ex) {
-                            StaticDataHandler.INSTANCE.getLOGGER().error(ex);
+                            StaticDataHandler.getInstance().getLOGGER().error(ex);
                         }
                     }
                     a.setCurrentOrder(currentOrder);

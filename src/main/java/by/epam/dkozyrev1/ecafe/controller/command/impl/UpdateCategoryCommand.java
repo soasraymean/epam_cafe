@@ -43,7 +43,7 @@ public class UpdateCategoryCommand extends AdminCommand {
                 WrongInteractionProcessor.wrongInteractionProcess(getRequest(), getResponse());
             }
         } catch (IOException | ServiceException ex){
-            StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Category %s hasn't been updated cause of %s", category, ex));
+            StaticDataHandler.getInstance().getLOGGER().error(String.format("Category %s hasn't been updated cause of %s", category, ex));
         }
     }
 

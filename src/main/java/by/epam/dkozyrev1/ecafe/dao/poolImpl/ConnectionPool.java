@@ -39,8 +39,8 @@ public class ConnectionPool implements IConnectionPool {
                 availableConnections.remove(0);
                 involvedConnections.add(connection);
             }
-        } else if (availableConnections.size() + involvedConnections.size() < DAOConfiguration.getInstance().getMaxPoolSize()) {
-            raiseConnections(DAOConfiguration.getInstance().getPoolIncreaseStep());
+        } else if (availableConnections.size() + involvedConnections.size() < DAOConfiguration.INSTANCE.getMaxPoolSize()) {
+            raiseConnections(DAOConfiguration.INSTANCE.getPoolIncreaseStep());
         }
         return connection;
     }
@@ -49,9 +49,9 @@ public class ConnectionPool implements IConnectionPool {
         for (int i = 0; i < initialCapacity; i++) {
             try {
                 availableConnections.add(new ConnectionProxy(DriverManager.getConnection(
-                        DAOConfiguration.getInstance().getDbUrl(),
-                        DAOConfiguration.getInstance().getDbUser(),
-                        DAOConfiguration.getInstance().getDbPassword())));
+                        DAOConfiguration.INSTANCE.getDbUrl(),
+                        DAOConfiguration.INSTANCE.getDbUser(),
+                        DAOConfiguration.INSTANCE.getDbPassword())));
             } catch (SQLException exception) {
                 throw new DAOConnectionPoolRaisingException(exception);
             }

@@ -9,9 +9,9 @@ public final class PasswordHashService {
     private PasswordHashService(){}
 
     public static int hash(String value){
-        int hashedValue = Objects.hash(value + AuthenticationServiceConfiguration.getInstance().getGlobalSalt());
-        for(int i = 0; i< AuthenticationServiceConfiguration.getInstance().getHashIterations(); i++){
-            hashedValue = Objects.hash(hashedValue, value + AuthenticationServiceConfiguration.getInstance().getGlobalSalt());
+        int hashedValue = Objects.hash(value + AuthenticationServiceConfiguration.INSTANCE.getGlobalSalt());
+        for(int i = 0; i< AuthenticationServiceConfiguration.INSTANCE.getHashIterations(); i++){
+            hashedValue = Objects.hash(hashedValue, value + AuthenticationServiceConfiguration.INSTANCE.getGlobalSalt());
         }
         return hashedValue;
     }

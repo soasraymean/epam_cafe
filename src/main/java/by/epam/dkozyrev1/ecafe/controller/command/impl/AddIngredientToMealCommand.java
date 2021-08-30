@@ -34,7 +34,7 @@ public class AddIngredientToMealCommand extends AdminCommand {
                         });
                         EntityServiceFactory.getInstance().getMealService().update(meal);
                     } catch (ServiceException ex) {
-                        StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Meal %s hasn't been updated cause of %s", meal, ex));
+                        StaticDataHandler.getInstance().getLOGGER().error(String.format("Meal %s hasn't been updated cause of %s", meal, ex));
                     }
                 });
                 ((HttpServletResponse) getResponse()).sendRedirect(getRequest().getServletContext().getContextPath() + "/admin_meal_info?key=" + updateKey);

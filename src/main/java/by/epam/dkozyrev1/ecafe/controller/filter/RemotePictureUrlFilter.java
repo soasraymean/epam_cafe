@@ -6,8 +6,15 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-//@WebFilter(urlPatterns = "/get_remote_image")
+@WebFilter(urlPatterns = "/get_remote_image")
 public class RemotePictureUrlFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    @Override
+    public void destroy() {
+    }
 
     @Override
     @ExceptionableBeingLogged

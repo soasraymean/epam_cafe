@@ -44,7 +44,7 @@ public class UpdateIngredientCommand extends AdminCommand {
                 WrongInteractionProcessor.wrongInteractionProcess(getRequest(), getResponse());
             }
         } catch (ServiceException | IOException ex) {
-            StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Ingredients %s hasn't been updated cause of %s", ingredient, ex));
+            StaticDataHandler.getInstance().getLOGGER().error(String.format("Ingredients %s hasn't been updated cause of %s", ingredient, ex));
         }
 
     }

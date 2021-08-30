@@ -4,10 +4,12 @@ import by.epam.dkozyrev1.ecafe.config.StaticDataHandler;
 import by.epam.dkozyrev1.ecafe.controller.command.Command;
 import by.epam.dkozyrev1.ecafe.controller.command.WebCommandType;
 import by.epam.dkozyrev1.ecafe.controller.filter.CommonUrlFilter;
+import by.epam.dkozyrev1.ecafe.controller.listener.InitListener;
 import by.epam.dkozyrev1.ecafe.controller.localisation.LocalisationService;
 import by.epam.dkozyrev1.ecafe.controller.security.RequestScriptingFilter;
 import by.epam.dkozyrev1.ecafe.logging.annotation.ExceptionableBeingLogged;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,11 +30,11 @@ public class CommonServlet extends HttpServlet {
             }
         } catch (Exception ex){
             ex.printStackTrace();
-            StaticDataHandler.INSTANCE.getLOGGER().error(ex);
+            StaticDataHandler.getInstance().getLOGGER().error(ex);
             try {
                 resp.sendRedirect(req.getServletContext().getContextPath() + "/something_went_wrong");
             } catch (IOException e) {
-                StaticDataHandler.INSTANCE.getLOGGER().error(e);
+                StaticDataHandler.getInstance().getLOGGER().error(e);
             }
         }
     }
@@ -47,11 +49,11 @@ public class CommonServlet extends HttpServlet {
             }
         } catch (Exception ex){
             ex.printStackTrace();
-            StaticDataHandler.INSTANCE.getLOGGER().error(ex);
+            StaticDataHandler.getInstance().getLOGGER().error(ex);
             try {
                 resp.sendRedirect(req.getServletContext().getContextPath() + "/something_went_wrong");
             } catch (IOException e) {
-                StaticDataHandler.INSTANCE.getLOGGER().error(e);
+                StaticDataHandler.getInstance().getLOGGER().error(e);
             }
         }
     }
@@ -65,6 +67,4 @@ public class CommonServlet extends HttpServlet {
             return false;
         }
     }
-
-
 }

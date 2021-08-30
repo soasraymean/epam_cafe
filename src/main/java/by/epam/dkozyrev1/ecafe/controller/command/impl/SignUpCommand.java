@@ -42,8 +42,8 @@ public class SignUpCommand extends Command {
                     getRequest().getParameter("name")));
             ((HttpServletResponse) getResponse()).sendRedirect(getRequest().getServletContext().getContextPath() + "/");
         } catch (ServiceException | IOException ex) {
-            StaticDataHandler.INSTANCE.getLOGGER().error(ex);
-            StaticDataHandler.INSTANCE.getLOGGER().error(Arrays.toString(ex.getStackTrace()));
+            StaticDataHandler.getInstance().getLOGGER().error(ex);
+            StaticDataHandler.getInstance().getLOGGER().error(Arrays.toString(ex.getStackTrace()));
             getRequest().setAttribute("error",
                     Objects.nonNull(((HttpServletRequest) getRequest()).getSession().getAttribute("locale")) ?
                     switch (((HttpServletRequest) getRequest()).getSession().getAttribute("locale").toString()){

@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.util.Objects;
 import java.util.Properties;
 
-public class AuthenticationServiceConfiguration {
-    private static AuthenticationServiceConfiguration INSTANCE;
+public enum AuthenticationServiceConfiguration {
+    INSTANCE;
 
     private final String USERNAME_PATTERN = "^[a-zA-Z][a-zA-Z0-9-_.]{1,20}$";
     private final String PASSWORD_PATTERN = "(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
@@ -15,14 +15,8 @@ public class AuthenticationServiceConfiguration {
     private String globalSalt;
     private int hashIterations;
 
-    public static AuthenticationServiceConfiguration getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new AuthenticationServiceConfiguration();
-        }
-        return INSTANCE;
-    }
 
-    private AuthenticationServiceConfiguration() {
+    AuthenticationServiceConfiguration() {
         loadProperties();
     }
 

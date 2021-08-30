@@ -39,7 +39,7 @@ public class RateOrderCommand extends Command {
                             try {
                                 EntityServiceFactory.getInstance().getOrderService().update(order);
                             } catch (ServiceException ex) {
-                                StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Order hasn't been rated cause of %s", ex));
+                                StaticDataHandler.getInstance().getLOGGER().error(String.format("Order hasn't been rated cause of %s", ex));
                             }
                 });
                 ((HttpServletResponse) getResponse()).sendRedirect(getRequest().getServletContext().getContextPath() +

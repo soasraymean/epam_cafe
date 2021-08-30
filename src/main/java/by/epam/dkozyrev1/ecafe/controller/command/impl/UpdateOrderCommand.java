@@ -52,7 +52,7 @@ public class UpdateOrderCommand extends AdminCommand {
                         "/admin_order_info?key=" + order.getId() :
                         "/admin_orders"));
         } catch (IOException | ServiceException ex) {
-            StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Order %s hasn't been updated cause of %s", order, ex));
+            StaticDataHandler.getInstance().getLOGGER().error(String.format("Order %s hasn't been updated cause of %s", order, ex));
         }
     }
 

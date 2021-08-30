@@ -43,7 +43,7 @@ public class PaymentSuccessCommand extends Command {
                 try {
                     EntityServiceFactory.getInstance().getClientService().update(actor);
                 } catch (ServiceException ex) {
-                    StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Client hasn't been updated cause of %s", ex));
+                    StaticDataHandler.getInstance().getLOGGER().error(String.format("Client hasn't been updated cause of %s", ex));
                 }
             });
             ((HttpServletResponse) getResponse()).sendRedirect(getRequest().getServletContext().getContextPath() + "/profile?status=success");

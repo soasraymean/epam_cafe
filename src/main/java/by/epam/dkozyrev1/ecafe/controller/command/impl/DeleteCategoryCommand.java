@@ -39,22 +39,22 @@ public class DeleteCategoryCommand extends AdminCommand {
     private void setDeletingCategoryMealsCategoryToUnset(String deleteKey) throws ServiceException {
         EntityServiceFactory.getInstance().getMealCategoryService().find(Integer.parseInt(deleteKey)).ifPresent(category -> {
             try {
-                EntityServiceFactory.getInstance().getMealCategoryService().find(MenuConfig.getInstance().getUnsetCategoryId()).ifPresent(unsetCategory -> {
+                EntityServiceFactory.getInstance().getMealCategoryService().find(MenuConfig.INSTANCE.getUnsetCategoryId()).ifPresent(unsetCategory -> {
                     try {
                         EntityServiceFactory.getInstance().getMealService().getList(category.getId()).forEach(meal -> {
                             meal.setCategory(unsetCategory);
                             try {
                                 EntityServiceFactory.getInstance().getMealService().update(meal);
                             } catch (ServiceException ex) {
-                                StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Meal %s category hasn't been set to %s cause of %s", meal, unsetCategory, ex));
+                                StaticDataHandler.getInstance().getLOGGER().error(String.format("Meal %s category hasn't been set to %s cause of %s", meal, unsetCategory, ex));
                             }
                         });
                     } catch (ServiceException ex){
-                        StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Meals category hasn't been changed to %s cause of %s", unsetCategory, ex));
+                        StaticDataHandler.getInstance().getLOGGER().error(String.format("Meals category hasn't been changed to %s cause of %s", unsetCategory, ex));
                     }
                 });
             } catch (ServiceException ex) {
-                StaticDataHandler.INSTANCE.getLOGGER().error(String.format("Meals category hasn't been changed to defaults cause of %s", ex));
+                StaticDataHandler.getInstance().getLOGGER().error(String.format("Meals category hasn't been changed to defaults cause of %s", ex));
             }
         });
     }

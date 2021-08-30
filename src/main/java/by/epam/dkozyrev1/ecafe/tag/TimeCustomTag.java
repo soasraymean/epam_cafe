@@ -14,7 +14,7 @@ public class TimeCustomTag extends TagSupport {
         try {
             pageContext.getOut().print(new SimpleDateFormat("yyyy-MM-dd HH:mm Z").format(new Date()));
         } catch (IOException ex) {
-            StaticDataHandler.INSTANCE.getLOGGER().error(ex);
+            StaticDataHandler.getInstance().getLOGGER().error(ex);
         }
         return SKIP_BODY;
     }

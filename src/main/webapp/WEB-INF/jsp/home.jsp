@@ -22,10 +22,6 @@
     <div class="home-pic-box">
         <img src="${pageContext.request.contextPath}/get_remote_image?url=/cafe-home-picture.jpg" alt="#" width="1024" height="600">
     </div>
-    <div class="home-desc-box">
-        <h2 class="home-heading"><fmt:message key="main.cafe"/> </h2>
-        <fmt:message key="main.description"/>
-    </div>
 </div>
 
 <div class="container">

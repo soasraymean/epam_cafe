@@ -16,6 +16,10 @@ public class SignUrlFilter implements Filter {
     private static final Set<String> PROCEEDING_URIS = new HashSet<>();
 
     @Override
+    public void destroy() {
+    }
+
+    @Override
     @ExceptionableBeingLogged
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         final HttpServletRequest req = (HttpServletRequest) servletRequest;

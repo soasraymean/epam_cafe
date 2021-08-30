@@ -9,15 +9,15 @@ public class AuthenticationValidationService {
     }
 
     public boolean signInDataIsValid(String username, String password) {
-        return username.matches(AuthenticationServiceConfiguration.getInstance().getUSERNAME_PATTERN()) &&
-                password.matches(AuthenticationServiceConfiguration.getInstance().getPASSWORD_PATTERN());
+        return username.matches(AuthenticationServiceConfiguration.INSTANCE.getUSERNAME_PATTERN()) &&
+                password.matches(AuthenticationServiceConfiguration.INSTANCE.getPASSWORD_PATTERN());
     }
 
     public boolean signUpDataIsValid(String username, String password, String email, String phone) {
-        return username.matches(AuthenticationServiceConfiguration.getInstance().getUSERNAME_PATTERN()) &&
-                password.matches(AuthenticationServiceConfiguration.getInstance().getPASSWORD_PATTERN()) &&
-                email.matches(AuthenticationServiceConfiguration.getInstance().getEMAIL_PATTERN()) &&
-                phone.matches(AuthenticationServiceConfiguration.getInstance().getPHONE_PATTERN());
+        return username.matches(AuthenticationServiceConfiguration.INSTANCE.getUSERNAME_PATTERN()) &&
+                password.matches(AuthenticationServiceConfiguration.INSTANCE.getPASSWORD_PATTERN()) &&
+                email.matches(AuthenticationServiceConfiguration.INSTANCE.getEMAIL_PATTERN()) &&
+                phone.matches(AuthenticationServiceConfiguration.INSTANCE.getPHONE_PATTERN());
     }
 
     private static class AuthenticationValidationServiceInstanceHandler{

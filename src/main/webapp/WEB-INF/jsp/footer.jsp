@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="thandler" uri="https://github.com/Mtlcwtchr/EpamCafe" %>
+<%@ taglib prefix="thandler" uri="https://github.com/soasraymean/epam_cafe" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
